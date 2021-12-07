@@ -1,13 +1,13 @@
-const express = require('express');
-const path = require('path');
-const app = express();
 const methodOverride = require('method-override');
+const express = require('express');
+const app = express();
+const path = require('path');
 
 app.use(express.urlencoded({extended:true}));
 
 app.use(express.json());
 
-app.use(methodOverride('__method'));
+app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -68,7 +68,8 @@ app.post('/pessoas', (req, res) => {
 });
 
 app.patch('/pessoas/:id', (req, res) => {
-    const {id} = req.body;
+    const {id} = req.params;
+
     const novoUsuario = req.body.nome;
     const pessoa = pessoas.find(p=> p.id === Number(id));
     
