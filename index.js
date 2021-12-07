@@ -54,6 +54,13 @@ app.get('/pessoas/:id', (req, res) => {
     res.render('pessoas/apresenta', {pessoa});
 });
 
+app.get('/pessoas/:id/edit', (req, res) => {
+    const {id} = req.params;
+    const pessoa = pessoas.find(p=> p.id === Number(id));
+    
+    res.render('pessoas/editar', {pessoa});
+});
+
 app.post('/pessoas', (req, res) => {
     const {nome, registro} = req.body;
     pessoas.push({nome, registro});
