@@ -70,9 +70,8 @@ app.post('/pessoas', (req, res) => {
 app.patch('/pessoas/:id', (req, res) => {
     const {id} = req.params;
 
-    const novoUsuario = req.body.nome;
-    const pessoa = pessoas.find(p=> p.id === Number(id));
-    
+    const novoUsuario = req.body.pessoa;
+    const pessoa = pessoas.find(p => p.id === Number(id));
     pessoa.nome = novoUsuario;
     res.redirect('/pessoas');
 });
