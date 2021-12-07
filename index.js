@@ -37,8 +37,13 @@ app.get('/pessoas', (req, res) => {
 });
 
 app.get('/pessoas/novo', (req, res) => {
-    const pessoas = req.body;
-    res.render('pessoas/index', {pessoas});
+    res.render('pessoas/novo');
+});
+
+app.post('/pessoas', (req, res) => {
+    const {nome, registro} = req.body;
+    pessoas.push({nome, registro});
+    res.redirect('/pessoas');
 });
 
 app.listen(3000, ()=>{
