@@ -76,6 +76,12 @@ app.patch('/pessoas/:id', (req, res) => {
     res.redirect('/pessoas');
 });
 
+app.delete('/pessoas/:id', (req, res)=>{
+    const {id} = req.params;
+    const pessoa = pessoas.find(p => p.id === Number(id));
+    res.redirect('/pessoas');
+})
+
 
 app.listen(3000, ()=>{
     console.log("Ouvindo na porta 3000!")   
