@@ -25,11 +25,11 @@ let pessoas = [
 ] 
 
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home');
 });
 
-app.get('/pessoa', (req, res) => {
-    res.render('pessoas/index')
+app.get('/pessoas', (req, res) => {
+    res.render('pessoas/index');
 });
 
 app.listen(3000, ()=>{
