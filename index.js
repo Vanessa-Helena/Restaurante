@@ -2,6 +2,10 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+app.use(express.urlencoded({extended:true}));
+
+app.use(express.json());
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -29,7 +33,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/pessoas', (req, res) => {
-    res.render('pessoas/index');
+    res.render('pessoas/index', {pessoas});
+});
+
+app.get('/pessoas/novo', (req, res) => {
+    const pessoas = req.body;
+    res.render('pessoas/index', {pessoas});
 });
 
 app.listen(3000, ()=>{
