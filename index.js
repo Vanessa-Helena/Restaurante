@@ -67,6 +67,16 @@ app.post('/pessoas', (req, res) => {
     res.redirect('/pessoas');
 });
 
+app.patch('/pessoas/:id', (req, res) => {
+    const {id} = req.body;
+    const novoUsuario = req.body.nome;
+    const pessoa = pessoas.find(p=> p.id === Number(id));
+    
+    pessoa.nome = novoUsuario;
+    res.redirect('/pessoas');
+});
+
+
 app.listen(3000, ()=>{
     console.log("Ouvindo na porta 3000!")   
 });
