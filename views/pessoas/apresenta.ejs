@@ -8,6 +8,8 @@
 </head>
 <body>
     <h1>ID do Usuario: <%=pessoa.id%> </h1>
-    <h2><%=pessoa.nome%> </h2> - <% =pessoa.registro%> 
+    <h2><%=pessoa.nome%>  - <%=pessoa.registro%> </h2>
+    <a href="/pessoas">Voltar para o index</a>
+    <a href="/pessoas/<%=pessoa.id%>/edit">Editar Usuario</a>
 </body>
 </html>

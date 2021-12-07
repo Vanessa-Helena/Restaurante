@@ -46,7 +46,8 @@ app.get('/pessoas/novo', (req, res) => {
 
 app.get('/pessoas/:id', (req, res) => {
     const {id} = req.params;
-    const pessoa = pessoas.find(p=> p.id === id);
+    const pessoa = pessoas.find(p=> p.id === Number(id));
+    
     res.render('pessoas/apresenta', {pessoa});
 });
 
