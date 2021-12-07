@@ -12,6 +12,7 @@
         <% for(let p of pessoas) { %>
             <li>
                 <%=p.nome %> - <b><%=p.registro %> </b> 
+                <a href="/pessoas/<%=p.id%>">Detalhes</a>
             </li>
         <%} %> 
     </ul>
