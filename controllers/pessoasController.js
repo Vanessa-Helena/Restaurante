@@ -1,6 +1,7 @@
 
 const {Pessoa} = require('../models');
 const {Router} = require('express');
+const { where } = require('sequelize/dist');
 
 const roteador = Router();
 
@@ -13,37 +14,46 @@ app.get('/novo', (req, res) => {
     res.render('pessoas/novo');
 });
 
-app.get('/:id', (req, res) => {
+app.get('/:id', async(req, res) => {
     const {id} = req.params;
-    const pessoa = pessoas.find(p=> p.id === Number(id));
+    let pessoa = await Pessoa.findByPk({id});
     
-    res.render('/apresenta', {pessoa});
+    res.render('pessoas/apresenta', {pessoa});
 });
 
-app.get('/:id/edit', (req, res) => {
+app.get('/:id/edit', async(req, res) => {
     const {id} = req.params;
-    const pessoa = pessoas.find(p=> p.id === Number(id));
+    let pessoa = await Pessoa.findByPk({id});
     
-    res.render('/editar', {pessoa});
+    res.render('pessoas/editar', {pessoa});
 });
 
-app.post('/', (req, res) => {
+app.post('/', async(req, res) => {
     const {nome, registro} = req.body;
-    pessoas.push({nome, registro});
+    await Pessoa.create({nome, registro});
     res.redirect('/pessoas');
 });
 
-app.patch('/:id', (req, res) => {
-    const {id} = req.params;
+app.patch('/:id', async(req, res) => {
+ 
+    const pessoa = req.body.pessoa;
 
-    const novoUsuario = req.body.pessoa;
-    const pessoa = pessoas.find(p => p.id === Number(id));
-    pessoa.nome = novoUsuario;
+    await Pessoa.update (
+        {pessoa},
+        {
+            where: {id: req.params.id}
+        }
+    );
     res.redirect('/pessoas');
 });
 
-app.delete('/:id', (req, res)=>{
-    const {id} = req.params;
-    const pessoa = pessoas.find(p => p.id === Number(id));
+app.delete('/:id', async(req, res)=>{
+
+    await Pessoa.destroy (
+        {
+            where: {id: req.params.id}
+        }
+    );
+
     res.redirect('/pessoas');
 })
