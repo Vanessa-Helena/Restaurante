@@ -7,15 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Pessoas</h1>
+    <h1>Peoples</h1>
     <ul>
-        <% for(let p of pessoas) { %>
+        <% for(let p of peoples) { %>
             <li>
                 <%=p.nome %> - <b><%=p.registro %> </b> 
-                <a href="/pessoas/<%=p.id%>">Detalhes</a>
+                <a href="/peoples/<%=p.id%>">Detalhes</a>
             </li>
         <%} %> 
     </ul>
-    <a href="/pessoas/novo">Criar Usuario</a>
+    <a href="/peoples/novo">Criar Usuario</a>
 </body>
 </html>

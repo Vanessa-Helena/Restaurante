@@ -1,61 +1,61 @@
 
-const {Pessoa} = require('../models');
+const {People} = require('../models');
 const {Router} = require('express');
 const { where } = require('sequelize/dist');
 
 const roteador = Router();
 
 roteador.get('/', async(req, res) => {
-    const pessoas = await Pessoa.finAll();
-    res.render('pessoas/index', {pessoas});
+    const peoples = await People.finAll();
+    res.render('peoples/index', {peoples});
 });
 
 roteador.get('/novo', (req, res) => {
-    res.render('pessoas/novo');
+    res.render('peoples/novo');
 });
 
 roteador.get('/:id', async(req, res) => {
     const {id} = req.params;
-    let pessoa = await Pessoa.findByPk({id});
+    let people = await people.findByPk({id});
     
-    res.render('pessoas/apresenta', {pessoa});
+    res.render('peoples/apresenta', {people});
 });
 
 roteador.get('/:id/edit', async(req, res) => {
     const {id} = req.params;
-    let pessoa = await Pessoa.findByPk({id});
+    let people = await people.findByPk({id});
     
-    res.render('pessoas/editar', {pessoa});
+    res.render('peoples/editar', {people});
 });
 
 roteador.post('/', async(req, res) => {
     const {nome, registro} = req.body;
-    await Pessoa.create({nome, registro});
-    res.redirect('/pessoas');
+    await people.create({nome, registro});
+    res.redirect('/peoples');
 });
 
 roteador.patch('/:id', async(req, res) => {
  
-    const pessoa = req.body.pessoa;
+    const people = req.body.people;
 
-    await Pessoa.update (
-        {pessoa},
+    await people.update (
+        {people},
         {
             where: {id: req.params.id}
         }
     );
-    res.redirect('/pessoas');
+    res.redirect('/peoples');
 });
 
 roteador.delete('/:id', async(req, res)=>{
 
-    await Pessoa.destroy (
+    await people.destroy (
         {
             where: {id: req.params.id}
         }
     );
 
-    res.redirect('/pessoas');
+    res.redirect('/peoples');
 });
 
 module.exports = roteador;
