@@ -1,7 +1,7 @@
-const peoplesController = require('./peoplesController');
+const pessoasController = require('./pessoasController');
 
 controllers = {
-    peoples: peoplesController
+    pessoas: pessoasController
 }
 
 module.exports = controllers;

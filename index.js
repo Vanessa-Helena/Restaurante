@@ -1,5 +1,5 @@
 const methodOverride = require('method-override');
-const {peoples} = require('./controllers');
+const {pessoas} = require('./controllers');
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.use('/peoples', peoples);
+app.use('/pessoas', pessoas);
 
 app.listen(3000, ()=>{
     console.log("Ouvindo na porta 3000!")   
