@@ -1,8 +1,8 @@
-const Pessoa = (sequelize, DataTypes) =>{
-    return sequelize.define('Pessoa', {
+const Pessoas = (sequelize, DataTypes) =>{
+    return sequelize.define('Pessoas', {
         nome: DataTypes.STRING,
         registro: DataTypes.INTEGER
     });
 }
 
-module.exports = Pessoa;
+module.exports = Pessoas;

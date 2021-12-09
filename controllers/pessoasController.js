@@ -1,11 +1,11 @@
-const {Pessoa} = require('../models');
+const {Pessoas} = require('../models');
 const {Router} = require('express');
 const { where } = require('sequelize/dist');
 
 const roteador = Router();
 
 roteador.get('/', async(req, res) => {
-    const pessoas = await Pessoa.findAll();
+    const pessoas = await Pessoas.findAll();
     res.render('pessoas/index', {pessoas});
 });
 
@@ -15,21 +15,21 @@ roteador.get('/novo', (req, res) => {
 
 roteador.get('/:id', async(req, res) => {
     const {id} = req.params;
-    let pessoa = await Pessoa.findByPk({id});
+    let pessoa = await Pessoas.findByPk({id});
     
     res.render('pessoas/apresenta', {pessoa});
 });
 
 roteador.get('/:id/edit', async(req, res) => {
     const {id} = req.params;
-    let pessoa = await Pessoa.findByPk({id});
+    let pessoa = await Pessoas.findByPk({id});
     
     res.render('pessoas/editar', {pessoa});
 });
 
 roteador.post('/', async(req, res) => {
     const {nome, registro} = req.body;
-    await Pessoa.create({nome, registro});
+    await Pessoas.create({nome, registro});
     res.redirect('/pessoas');
 });
 
@@ -37,7 +37,7 @@ roteador.patch('/:id', async(req, res) => {
  
     const pessoa = req.body.pessoa;
 
-    await Pessoa.update (
+    await Pessoas.update (
         {pessoa},
         {
             where: {id: req.params.id}
@@ -48,7 +48,7 @@ roteador.patch('/:id', async(req, res) => {
 
 roteador.delete('/:id', async(req, res)=>{
 
-    await Pessoa.destroy (
+    await Pessoas.destroy (
         {
             where: {id: req.params.id}
         }
