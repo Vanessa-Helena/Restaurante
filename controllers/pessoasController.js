@@ -4,7 +4,8 @@ const {Router} = require('express');
 
 const roteador = Router();
 
-app.get('/', (req, res) => {
+app.get('/', async(req, res) => {
+    const pessoas = await Pessoa.finAll();
     res.render('pessoas/index', {pessoas});
 });
 
