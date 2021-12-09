@@ -1,4 +1,3 @@
-
 const {Pessoa} = require('../models');
 const {Router} = require('express');
 const { where } = require('sequelize/dist');
@@ -6,7 +5,7 @@ const { where } = require('sequelize/dist');
 const roteador = Router();
 
 roteador.get('/', async(req, res) => {
-    const pessoas = await Pessoa.finAll();
+    const pessoas = await Pessoa.findAll();
     res.render('pessoas/index', {pessoas});
 });
 
