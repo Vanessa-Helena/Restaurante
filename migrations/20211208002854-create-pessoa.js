@@ -8,7 +8,7 @@ module.exports = {
     await queryInterface.createTable('pessoa', { 
       id: {
         type: Sequelize.INTEGER,
-        pimarykey: true,
+        primarykey: true,
         autoIncrement: true,
         allowNull: false
       },
