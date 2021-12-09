@@ -4,35 +4,35 @@ const {Router} = require('express');
 
 const roteador = Router();
 
-app.get('/pessoas', (req, res) => {
+app.get('/', (req, res) => {
     res.render('pessoas/index', {pessoas});
 });
 
-app.get('/pessoas/novo', (req, res) => {
+app.get('/novo', (req, res) => {
     res.render('pessoas/novo');
 });
 
-app.get('/pessoas/:id', (req, res) => {
+app.get('/:id', (req, res) => {
     const {id} = req.params;
     const pessoa = pessoas.find(p=> p.id === Number(id));
     
-    res.render('pessoas/apresenta', {pessoa});
+    res.render('/apresenta', {pessoa});
 });
 
-app.get('/pessoas/:id/edit', (req, res) => {
+app.get('/:id/edit', (req, res) => {
     const {id} = req.params;
     const pessoa = pessoas.find(p=> p.id === Number(id));
     
-    res.render('pessoas/editar', {pessoa});
+    res.render('/editar', {pessoa});
 });
 
-app.post('/pessoas', (req, res) => {
+app.post('/', (req, res) => {
     const {nome, registro} = req.body;
     pessoas.push({nome, registro});
     res.redirect('/pessoas');
 });
 
-app.patch('/pessoas/:id', (req, res) => {
+app.patch('/:id', (req, res) => {
     const {id} = req.params;
 
     const novoUsuario = req.body.pessoa;
@@ -41,7 +41,7 @@ app.patch('/pessoas/:id', (req, res) => {
     res.redirect('/pessoas');
 });
 
-app.delete('/pessoas/:id', (req, res)=>{
+app.delete('/:id', (req, res)=>{
     const {id} = req.params;
     const pessoa = pessoas.find(p => p.id === Number(id));
     res.redirect('/pessoas');
