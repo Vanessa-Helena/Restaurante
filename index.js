@@ -12,29 +12,6 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-let pessoas = [
-    {
-        id: 1,
-        nome: "Vanessa",
-        registro: 123
-    },
-    {
-        id: 2,
-        nome: "Carlos",
-        registro: 456
-    },
-    {
-        id: 3,
-        nome: "Tomoyo",
-        registro: 789
-    },
-    {
-        id: 4,
-        nome: "Shiryu",
-        registro: 101
-    }
-] 
-
 app.get('/', (req, res) => {
     res.render('home');
 });
