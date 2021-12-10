@@ -27,6 +27,13 @@ roteador.get('/:id/edit', async(req, res) => {
     res.render('pessoas/editar', {pessoa});
 });
 
+roteador.get('/:id/delete', async(req, res) => {
+    const {id} = req.params;
+    let pessoa = await Pessoa.findByPk(id);
+    
+    res.render('pessoas/delete', {pessoa});
+});
+
 roteador.post('/', async(req, res) => {
     const {nome, registro} = req.body;
     await Pessoa.create({nome, registro});
