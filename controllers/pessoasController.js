@@ -43,14 +43,16 @@ roteador.post('/', async(req, res) => {
 roteador.patch('/:id', async(req, res) => {
  
     const people = req.body.pessoa;
-
+    const register = req.body.registro;
+ 
     await Pessoa.update (
-        {people},
+        {people, register},
         {
             where: {id: req.params.id}
         }
     );
     res.redirect('/pessoas');
+
 });
 
 roteador.delete('/:id', async(req, res)=>{
