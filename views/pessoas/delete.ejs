@@ -9,9 +9,9 @@
 <body>
     <h1>Deletar Usuario</h1>
     <form action="/pessoas/<%=pessoa.id%>?_method=DELETE" method="POST">
-        <textarea name="pessoa" id="" cols="30" rows="10"><%=pessoa.nome%> </textarea>
+        <p name="pessoa" id="" cols="30" rows="10"><%=pessoa.nome%> - <%=pessoa.registro%> </p>
         <br>
-        <button type="submit">Deletar</button>
+        <button type="submit">Deletar</button> <button href="/pessoas">Desistir</button>
     </form>
 </body>
 </html>

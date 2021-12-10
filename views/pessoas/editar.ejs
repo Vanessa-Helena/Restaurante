@@ -9,7 +9,7 @@
 <body>
     <h1>Editar Usuario</h1>
     <form action="/pessoas/<%=pessoa.id%>?_method=PATCH" method="POST">
-        <textarea name="pessoa" id="" cols="30" rows="10"><%=pessoa.nome%> </textarea>
+        <textarea name="pessoa" id="" cols="30" rows="10"><%=pessoa.nome%> - <%=pessoa.registro%></textarea>
         <br>
         <button type="submit">Salvar</button>
     </form>
