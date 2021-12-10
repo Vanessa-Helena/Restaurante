@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/pessoas', pessoas);
+app.use('/usuarios', users);
 
 app.listen(3000, ()=>{
     console.log("Ouvindo na porta 3000!")   
