@@ -1,6 +1,6 @@
 const {Pessoa} = require('../models');
 const {Router} = require('express');
-const { where } = require('sequelize/dist');
+const {where} = require('sequelize/dist');
 
 const roteador = Router();
 
@@ -15,30 +15,30 @@ roteador.get('/novo', (req, res) => {
 
 roteador.get('/:id', async(req, res) => {
     const {id} = req.params;
-    let pessoa = await Pessoa.findByPk({id});
+    let pessoa = await Pessoa.findByPk(id);
     
     res.render('pessoas/apresenta', {pessoa});
 });
 
 roteador.get('/:id/edit', async(req, res) => {
     const {id} = req.params;
-    let pessoa = await Pessoa.findByPk({id});
+    let pessoa = await Pessoa.findByPk(id);
     
     res.render('pessoas/editar', {pessoa});
 });
 
 roteador.post('/', async(req, res) => {
     const {nome, registro} = req.body;
-    await Pessoas.create({nome, registro});
+    await Pessoa.create({nome, registro});
     res.redirect('/pessoas');
 });
 
 roteador.patch('/:id', async(req, res) => {
  
-    const pessoa = req.body.pessoa;
+    const people = req.body.pessoa;
 
     await Pessoa.update (
-        {pessoa},
+        {people},
         {
             where: {id: req.params.id}
         }
