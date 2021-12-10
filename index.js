@@ -1,5 +1,5 @@
 const methodOverride = require('method-override');
-const {pessoas} = require('./controllers');
+const {pessoas, users} = require('./controllers');
 const express = require('express');
 const app = express();
 const path = require('path');
