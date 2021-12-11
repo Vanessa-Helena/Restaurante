@@ -28,10 +28,10 @@ roteador.get('/:id/edit', async(req, res)=>{
 });
 
 roteador.post('/login', async (req, res)=>{
-    const {nome, senha} = req.body;
+    const {email, senha} = req.body;
     const user = await User.findOne({
         where: {
-            nome: nome,
+            email: email,
             senha: senha
         }
     });

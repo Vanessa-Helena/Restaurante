@@ -13,6 +13,14 @@ const sessOptions = {
 
 app.use(session(sessOptions));
 
+function verifica_pass(req, res, next){
+    if(req.session.login || req.path === '/login'){
+        next();
+    }else{
+        res.redirect('/usuarios/login');
+    }
+}
+
 app.use(express.urlencoded({extended:true}));
 
 app.use(express.json());
@@ -27,6 +35,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/pessoas', pessoas);
+app.use(verifica_pass);
 app.use('/usuarios', users);
 
 app.listen(3000, ()=>{
