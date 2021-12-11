@@ -9,11 +9,11 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-      username: {
+      nome: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      password: {
+      senha: {
         type: Sequelize.STRING,
         allowNull: false
       },
