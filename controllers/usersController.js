@@ -46,8 +46,8 @@ roteador.post('/login', async (req, res)=>{
 });
 
 roteador.post('/novo', async (req, res)=>{
-    const {novo, senha} = req.body;
-    await User.create({novo, senha});
+    const {email, senha} = req.body;
+    await User.create({email, senha});
     res.redirect('/usuarios/login');
 });
 
