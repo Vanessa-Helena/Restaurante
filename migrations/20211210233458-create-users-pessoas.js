@@ -2,11 +2,11 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn('users', 'userId', {
+    await queryInterface.addColumn('Pessoas', 'userId', {
        type: Sequelize.INTEGER,
        allowNull: false,
        references: {
-         model: 'Pessoas',
+         model: 'users',
          key: 'id'
        }      
       });
