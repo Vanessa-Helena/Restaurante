@@ -9,7 +9,7 @@ module.exports = {
       id: {
         type: Sequelize.INTEGER,
         primarykey: true,
-        //autoIncrement: true,
+        autoIncrement: true,
         allowNull: false
       },
       nome: {

@@ -6,7 +6,7 @@ module.exports = {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        //autoIncrement: true,
+        autoIncrement: true,
         allowNull: false
       },
       email: {
@@ -35,6 +35,6 @@ module.exports = {
 
 down: async (queryInterface, Sequelize) => {
 
-    await queryInterface.dropTable('user');
+    await queryInterface.dropTable('users');
 }
 };
