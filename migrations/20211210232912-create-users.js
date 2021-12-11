@@ -6,10 +6,10 @@ module.exports = {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        //autoIncrement: true,
         allowNull: false
       },
-      nome: {
+      email: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -35,6 +35,6 @@ module.exports = {
 
 down: async (queryInterface, Sequelize) => {
 
-    await queryInterface.dropTable('user');
+    await queryInterface.dropTable('users');
 }
 };
