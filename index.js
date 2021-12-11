@@ -3,6 +3,15 @@ const {pessoas, users} = require('./controllers');
 const express = require('express');
 const app = express();
 const path = require('path');
+const session = require('express-session');
+
+const sessOptions = {
+    secret: 'frasealeatoria',
+    resave: false,
+    saveUninitialized: false
+}
+
+app.use(session(sessOptions));
 
 app.use(express.urlencoded({extended:true}));
 
